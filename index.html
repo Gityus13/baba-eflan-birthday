@@ -460,8 +460,9 @@
             <h2 class="form-title">Təbrikinizi Göndərin</h2>
             <form action="https://formsubmit.co/eflanbirthday@gmail.com" method="POST" id="congratulation-form">
                 <input type="hidden" name="_subject" value="Yeni təbrik mesajı - Əflan Qurbanov 70 yaş">
-                <input type="hidden" name="_captcha" value="False">
+                <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html"> <!-- Add your thank you page URL here -->
                 
                 <div class="form-group">
                     <label for="surname">Soyad</label>
@@ -560,6 +561,11 @@
             setTimeout(() => {
                 successMessage.style.display = 'block';
                 form.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
             }, 100);
         });
 
