@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eflan Qurbanov — 70 Yaş</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+            color: white;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #FFD166;
+            position: absolute;
+            animation: confetti-fall 3s linear infinite;
+            z-index: 1;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 30%, #533483 70%, #FFD166 100%);
+            position: relative;
+            overflow: hidden;
+            padding: 40px 20px;
+        }
+
+        .photo-container {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #FFD166;
+            box-shadow: 0 0 40px rgba(255, 209, 102, 0.6);
+            animation: photoZoom 2s ease-out, photoPulse 3s ease-in-out infinite 2s;
+            margin-bottom: 40px;
+            background: #ddd;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes photoZoom {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes photoPulse {
+            0%, 100% {
+                box-shadow: 0 0 40px rgba(255, 209, 102, 0.6);
+            }
+            50% {
+                box-shadow: 0 0 60px rgba(255, 209, 102, 0.9);
+            }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #FFD166, #FFF, #FFD166);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-align: center;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+            text-shadow: 0 0 30px rgba(255, 209, 102, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-align: center;
+            max-width: 700px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 1s both;
+            color: #f0f0f0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Countdown Section */
+        .countdown-section {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #16213e 0%, #0f2027 100%);
+            position: relative;
+        }
+
+        .countdown-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD166;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .countdown-item {
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #FFD166;
+            text-shadow: 0 0 30px rgba(255, 209, 102, 0.8);
+            animation: pulse 1s ease-in-out infinite;
+            display: block;
+            min-width: 120px;
+        }
+
+        .countdown-label {
+            font-size: 1.2rem;
+            color: #ccc;
+            margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .celebration-message {
+            display: none;
+            font-size: 3rem;
+            font-weight: 900;
+            color: #FFD166;
+            text-align: center;
+            animation: celebrate 1s ease-in-out infinite;
+        }
+
+        @keyframes celebrate {
+            0%, 100% {
+                transform: scale(1) rotate(-5deg);
+            }
+            50% {
+                transform: scale(1.2) rotate(5deg);
+            }
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #0f2027 0%, #16213e 100%);
+            position: relative;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20% 30%, white, transparent),
+                radial-gradient(2px 2px at 60% 70%, white, transparent),
+                radial-gradient(1px 1px at 50% 50%, white, transparent),
+                radial-gradient(1px 1px at 80% 10%, white, transparent),
+                radial-gradient(2px 2px at 90% 60%, white, transparent);
+            background-size: 200% 200%;
+            animation: sparkle 10s linear infinite;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                background-position: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+            }
+            50% {
+                background-position: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
+            }
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.3rem;
+            line-height: 2;
+            color: #e0e0e0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .about-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Form Section */
+        .form-section {
+            padding: 100px 20px;
+            background: linear-gradient(180deg, #16213e 0%, #1a1a2e 100%);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD166;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: #FFD166;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #FFD166;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1rem;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(255, 209, 102, 0.5);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(45deg, #FFD166, #FFA500);
+            border: none;
+            border-radius: 50px;
+            color: #1a1a2e;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 209, 102, 0.5);
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+            transition: left 0.5s;
+        }
+
+        .submit-btn:hover::before {
+            left: 100%;
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(255, 209, 102, 0.2);
+            border: 2px solid #FFD166;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #FFD166;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            background: #0f2027;
+            text-align: center;
+            border-top: 2px solid #FFD166;
+            box-shadow: 0 -5px 20px rgba(255, 209, 102, 0.3);
+        }
+
+        footer p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .footer-icon {
+            font-size: 2rem;
+            margin-top: 15px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .countdown-number {
+                font-size: 3rem;
+                min-width: 80px;
+            }
+
+            .countdown {
+                gap: 20px;
+            }
+
+            .form-title,
+            .countdown-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="photo-container">
+            <img src="https://via.placeholder.com/250" alt="Eflan Qurbanov" id="profile-photo">
+        </div>
+        <h1 class="hero-title">Eflan Qurbanov — 70 Yaş</h1>
+        <p class="hero-subtitle">Əziz Eflan müəllim, doğum gününüz mübarək! Siz bizim üçün dəyərlisiniz.</p>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+        <h2 class="countdown-title">Ad Gününə Qalan Vaxt</h2>
+        <div class="countdown" id="countdown">
+            <div class="countdown-item">
+                <span class="countdown-number" id="days">00</span>
+                <span class="countdown-label">Günlər</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="hours">00</span>
+                <span class="countdown-label">Saatlar</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="minutes">00</span>
+                <span class="countdown-label">Dəqiqələr</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-number" id="seconds">00</span>
+                <span class="countdown-label">Saniyələr</span>
+            </div>
+        </div>
+        <div class="celebration-message" id="celebration">
+            🎉 Ad Günün Mübarək! 🎉
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content" id="about-content">
+            <p>Eflan Qurbanov 70 yaşını qeyd edir. Onun zəhməti, ailəsinə və dostlarına olan sevgisi daim yadda qalacaq. Bu sayt, ona olan hörmət və sevgimizi bölüşmək üçün yaradılıb.</p>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-section">
+        <div class="form-container">
+            <h2 class="form-title">Təbrikinizi Göndərin</h2>
+            <form action="https://formsubmit.co/yusif.kurba@gmail.com" method="POST" id="congratulation-form">
+                <input type="hidden" name="_subject" value="Yeni təbrik mesajı - Eflan Qurbanov 70 yaş">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                
+                <div class="form-group">
+                    <label for="surname">Soyad</label>
+                    <input type="text" id="surname" name="Soyad" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="name">Ad</label>
+                    <input type="text" id="name" name="Ad" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Təbrik Mesajı</label>
+                    <textarea id="message" name="Mesaj" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Göndər</button>
+            </form>
+            <div class="success-message" id="success-message">
+                Təbrikiniz uğurla göndərildi! 🎉
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 — Eflan Qurbanov'un 70 illik yubileyi. Sizi sevirik ❤️</p>
+        <div class="footer-icon">🎂</div>
+    </footer>
+
+    <script>
+        // Confetti Animation
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#FFD166', '#FFA500', '#FF6B6B', '#4ECDC4', '#95E1D3'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 3 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                container.appendChild(confetti);
+            }
+        }
+
+        createConfetti();
+
+        // Countdown Timer
+        function updateCountdown() {
+            const targetDate = new Date('November 2, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').style.display = 'none';
+                document.getElementById('celebration').style.display = 'block';
+                createConfetti();
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Scroll Animation for About Section
+        const aboutContent = document.getElementById('about-content');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        observer.observe(aboutContent);
+
+        // Form Submission Handler
+        const form = document.getElementById('congratulation-form');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', function(e) {
+            // Let the form submit naturally to formsubmit.co
+            // but show success message after a brief delay
+            setTimeout(() => {
+                successMessage.style.display = 'block';
+                form.reset();
+            }, 100);
+        });
+
+        // Image upload handling (for testing)
+        // Replace the placeholder image URL with actual photo
+        // document.getElementById('profile-photo').src = 'path-to-actual-photo.jpg';
+    </script>
+</body>
+</html>
